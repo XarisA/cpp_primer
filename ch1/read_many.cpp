@@ -1,19 +1,23 @@
 #include <iostream>
 #include "Sales_item.h"
 
+using std::cout;
+using std::endl;
+using std::cin;
+
 int main() {
     Sales_item item, nextItem;
-    std::cin >> item;
-    while (std::cin >> nextItem){
+    cin >> item;
+    while (cin >> nextItem){
         if (item.isbn() == nextItem.isbn())
         {
             item += nextItem;
         }
         else {
-            std::cout << "Must be same ISBN!" << std::endl;
+            cout << "Must be same ISBN!" << endl;
             return -1;
         }
     }
-    std::cout << item << std::endl;
+    cout << item << endl;
     return 0;
 }
