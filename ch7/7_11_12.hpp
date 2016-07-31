@@ -1,5 +1,5 @@
-#ifndef ch7_11_hpp
-#define ch7_11_hpp
+#ifndef SALES_DATA_OBJ
+#define SALES_DATA_OBJ
 #include <iostream>
 
 using std::ostream;
