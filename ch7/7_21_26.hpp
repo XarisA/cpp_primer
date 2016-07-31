@@ -22,7 +22,7 @@ class Sales_data {
     public:
         Sales_data& combine(const Sales_data &rhs);
         string isbn() const;
-        inline double avg_prive();
+        inline double avg_price();
 
         // constructors
         Sales_data() = default;
@@ -44,7 +44,7 @@ string Sales_data::isbn() const {
     return bookNo;
 }
 
-double avg_price() {
+double Sales_data::avg_price() {
     return revenue / units_sold;
 }
 
