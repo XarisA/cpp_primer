@@ -28,7 +28,7 @@ class Sales_data {
         Sales_data() = default;
         Sales_data(const string &s) : bookNo(s) {};
         Sales_data(const string &s, unsigned u, double r) : 
-                    bookNo(s), units_sold(u), revenue(r) {}
+                    bookNo(s), units_sold(u), revenue(r * u) {}
         Sales_data(istream &is) {
             read(is, *this);
         }   
