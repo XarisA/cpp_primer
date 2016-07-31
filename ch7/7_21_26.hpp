@@ -1,5 +1,5 @@
-#ifndef ch7_21_hpp
-#define ch7_21_hpp
+#ifndef SALES_DATA_OBJ
+#define SALES_DATA_OBJ
 #include <iostream>
 
 using std::ostream;
@@ -22,6 +22,7 @@ class Sales_data {
     public:
         Sales_data& combine(const Sales_data &rhs);
         string isbn() const;
+        inline double avg_prive();
 
         // constructors
         Sales_data() = default;
@@ -30,7 +31,7 @@ class Sales_data {
                     bookNo(s), units_sold(u), revenue(r) {}
         Sales_data(istream &is) {
             read(is, *this);
-        }
+        }   
 };
 
 Sales_data& Sales_data::combine(const Sales_data &rhs) {
@@ -41,6 +42,10 @@ Sales_data& Sales_data::combine(const Sales_data &rhs) {
 
 string Sales_data::isbn() const {
     return bookNo;
+}
+
+double avg_price() {
+    return revenue / units_sold;
 }
 
 istream &read(istream &is, Sales_data &s) {
