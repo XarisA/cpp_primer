@@ -13,8 +13,9 @@ struct Person {
     string getName() const;
     string getAddress() const;
     Person() = default;
-    Person(const string &n) : name(n) {};
     Person(const string &n, const string &a) : name(n), address(a) {};
+    explicit Person(const string &n) : name(n) {};
+    explicit Person(istream &is);
 };
 
 string Person::getName() const {
@@ -33,6 +34,10 @@ istream &read(istream &is, Person &p) {
 ostream &print(ostream &os, const Person &p) {
     os << p.getName() << ' ' << p.getAddress();
     return os;
+}
+
+Person::Person(istream &is) {
+    read(is, *this);
 }
 
 int main() {
