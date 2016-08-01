@@ -22,6 +22,7 @@ int main() {
 
     while (getline(cin, line)) {
         PersonInfo info;
+        record.clear();
         record.str(line);
         record >> info.name;
         while (record >> word) {
@@ -29,6 +30,8 @@ int main() {
         }
         people.push_back(info);
     }
-    cout << people.size() << endl;
+    for (auto p = people.begin(); p != people.end(); ++p) {
+        cout << p->name << endl;
+    }
     return 0;
 }
