@@ -6,6 +6,7 @@ using std::endl;
 using std::cerr;
 using std::string;
 using std::ifstream;
+using std::ofstream;
 
 struct Sales_data {
     string bookNo;
@@ -16,6 +17,7 @@ struct Sales_data {
 int main(int argc, char** argv) {
     Sales_data total;
     ifstream in(argv[1]);
+    ofstream out(argv[2], ofstream::app);
     if (in) {
         if (in >> total.bookNo >> total.units_sold >> total.revenue) {
             Sales_data trans;
@@ -25,11 +27,11 @@ int main(int argc, char** argv) {
                     total.revenue += trans.revenue;
                 }
                 else {
-                    cout << total.bookNo << ' ' << total.units_sold << ' ' << total.revenue << endl;
+                    out << total.bookNo << ' ' << total.units_sold << ' ' << total.revenue << endl;
                     total = trans;
                 }
             }
-            cout << total.bookNo << ' ' << total.units_sold << ' ' << total.revenue << endl;
+            out << total.bookNo << ' ' << total.units_sold << ' ' << total.revenue << endl;
         }
         else {
             cerr << "No data?!" << endl;
