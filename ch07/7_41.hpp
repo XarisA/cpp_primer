@@ -30,17 +30,17 @@ class Sales_data {
             #ifndef NDEBUG
             std::cerr << "Delegate called"<< endl;
             #endif
-                    }
+        }
         Sales_data() : Sales_data("", 0, 0.0) {
             #ifndef NDEBUG
             std::cerr << "Default constructor called"<< endl;
             #endif
-        };
+        }
         Sales_data(const string &s) : Sales_data(s, 0, 0.0) {
             #ifndef NDEBUG
             std::cerr << "string constructor called"<< endl;
             #endif
-        };
+        }
         
         Sales_data(istream &is) : Sales_data("", 0, 0.0){
             #ifndef NDEBUG
