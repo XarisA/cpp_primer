@@ -5,6 +5,7 @@
 using std::sort;
 using std::vector;
 
+// ex 10.12
 bool compareIsbn(const Sales_data &d1, const Sales_data &d2) {
     return d1.isbn() < d2.isbn();
 }
@@ -21,7 +22,10 @@ int main() {
     sales.emplace_back("198247234");
     sales.emplace_back("123");
     sales.emplace_back("124");
-    sort(sales.begin(), sales.end(), compareIsbn);
+    
+    //sort(sales.begin(), sales.end(), compareIsbn);
+    // ex 10.17 : lambda version
+    sort(sales.begin(), sales.end(), [](const Sales_data &d1, const Sales_data &d2) { return d1.isbn() < d2.isbn(); } );
     for (const auto &s : sales) {
         cout << s.isbn() << ' ';
     }
