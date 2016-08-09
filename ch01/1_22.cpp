@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Sales_item.h"
+#include "../include/Sales_item.h"
 
 using std::cout;
 using std::endl;
