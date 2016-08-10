@@ -13,7 +13,8 @@ int main() {
     string word;
     vector<string> excluded{"abc", "aaa", "abd"};
     cin >> word;
-    auto found = find(excluded.cbegin(), excluded.cend(), word);        // searching in a unsorted vector takes O(n) time, while it only takes O(1) in a set
+    auto found = find(excluded.cbegin(), excluded.cend(), word);
+    // searching in a unsorted vector takes O(n) time, while it only takes O(1) in a unordered_set, O(logN) in a set (it's sorted).
     cout << (found == excluded.end() ? "not excluded" : "excluded") << endl;
 
     return 0;
