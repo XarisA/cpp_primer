@@ -35,7 +35,7 @@ void end_connection(connection *p) {
 void func(destination &dest) {
     connection c = connect(&dest);
     //shared_ptr<connection> p(&c, end_connection);
-    shared_ptr<connection> p(&c, [](connection *p) {disconnect(*p);});
+    shared_ptr<connection> p(&c, [](connection *cp) {disconnect(*cp);});
     cout << "Connecting..." << endl;
 }
 
