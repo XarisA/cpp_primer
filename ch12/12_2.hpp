@@ -1,9 +1,19 @@
+#ifndef STR_BLOB
+#define STR_BLOB
+
 #include <vector>
 #include <string>
 #include <memory>
+#include "12_19.hpp"
+
+class StrBlobPtr;
 
 class StrBlob {
 public:
+    friend class StrBlobPtr;
+    StrBlobPtr begin();
+    StrBlobPtr end();
+
     typedef std::vector<std::string>::size_type size_type;
     StrBlob() : data(std::make_shared<std::vector<std::string>>()) {}
     StrBlob(std::initializer_list<std::string> il) : data(std::make_shared<std::vector<std::string>>(il)) {}
@@ -42,4 +52,6 @@ private:
         if (i >= data->size()) throw std::out_of_range(msg);
     }
 };
+
+#endif
 
