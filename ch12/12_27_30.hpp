@@ -49,8 +49,26 @@ private:
 };
 
 QueryResult TextQuery::query(const std::string& word) {
-    auto result = QueryResult(word, lines_record[word], text);
-    return result;
+    static std::shared_ptr<std::set<line_no>> nodata(new std::set<line_no>);
+    auto loc = lines_record.find(word);
+    if (loc == lines_record.end()) {
+        return QueryResult(word, nodata, text);
+    } 
+    else {
+        return QueryResult(word, loc->second, text);
+    }
+}
+
+std::string make_plural(size_t ctr, const std::string &word, const std::string &ending = "s") {
+    return (ctr > 1) ? word + ending : word;
+}
+
+std::ostream &print(std::ostream &os, const QueryResult &q) {
+    os << q.word << " occurs " << q.lines->size() << " " << make_plural(q.lines->size(), "time") << std::endl;
+    for (auto num : *q.lines) {
+        os << "\t(line " << num + 1 << ") " << *(q.text->begin() + num) << std::endl;
+    }
+    return os;
 }
 
 #endif
