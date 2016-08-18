@@ -17,7 +17,12 @@ public:
             i = rhs.i;
         }
         return *this;
-    }                                             
+    }                
+
+    ~HasPtr() {
+        delete ps;
+    }
+                                 
 private:
     std::string *ps;
     int i;
