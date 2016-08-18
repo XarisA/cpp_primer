@@ -21,7 +21,7 @@ You can pruchase this book from Amazon.com: <https://www.amazon.com/Primer-5th-S
   - [Chapter 11. Associative Containers](ch11)
   - [Chapter 12. Dynamic Memory](ch12)
 - Part III: Tools for Class Authors
-  - Chapter 13. Copy Control
+  - [Chapter 13. Copy Control](ch13)
   - Chapter 14. Overloaded Operations and Conversions
   - Chapter 15. Object-Oriented Programming
   - Chapter 16. Templates and Generic Programming
