@@ -16,8 +16,12 @@ public:
         i = rhs.i;
         return *this;
     }
+    bool operator<(const HasPtr &rhs) const {
+        return *ps < *rhs.ps;
+    }
+
     ~HasPtr() { delete ps; }
-    void show() { std::cout << *ps << std::endl; }
+    void show() const { std::cout << *ps << std::endl; }
 private:
     std::string *ps;
     int i;
