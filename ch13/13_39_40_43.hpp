@@ -61,6 +61,10 @@ void StrVec::free() {
         for (auto p = first_free; p != elements; ) {
             alloc.destroy(--p);
         }
+        /*
+        Ex. 13.43 : is this going to destroy elements in reverse order?
+        for_each(elements, first_free, [this](const std::string &rhs){ alloc.destroy(&rhs); });
+        */
         alloc.deallocate(elements, cap - elements);
     }
 }
