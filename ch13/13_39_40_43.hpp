@@ -9,6 +9,7 @@ class StrVec {
 public:
     StrVec() : elements(nullptr), first_free(nullptr), cap(nullptr) {};
     StrVec(const StrVec&);
+    StrVec(std::initializer_list<std::string>);
     StrVec& operator=(const StrVec&);
     ~StrVec() { free(); };
     void push_back(const std::string&);
@@ -101,6 +102,12 @@ void StrVec::resize(const size_t n, const std::string& s) {
             alloc.destroy(--p);
         }
     }
+}
+
+StrVec::StrVec(std::initializer_list<std::string> l) {
+    auto data = alloc_n_copy(l.begin(), l.end());
+    elements = data.first;
+    cap = first_free = data.second;
 }
 
 #endif
