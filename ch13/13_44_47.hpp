@@ -3,12 +3,15 @@
 
 #include <memory>
 #include <algorithm>
+#include <iostream>
 
 class String {
 public:
     String() : String("") {};
     String(const char*);
     ~String() { free(); };
+    String(const String&);
+    String& operator=(const String&);
 private:
     static std::allocator<char> alloc;
     std::pair<char*, char*> alloc_n_copy(const char*, const char*);
@@ -19,6 +22,7 @@ private:
 };
 
 String::String(const char *str) {
+    std::cout << "String(const char *str)" << std::endl;
     char *end = const_cast<char*>(str);
     while (*end) {
         ++end;
@@ -43,5 +47,21 @@ void String::free() {
         alloc.deallocate(cStringBegin, cStringEnd - cStringBegin);
     }
 }
+
+String& String::operator=(const String &rhs) {
+    std::cout << "operator=(const String&)" << std::endl;
+    auto newStr = alloc_n_copy(rhs.cStringBegin, rhs.cStringEnd);
+    free();
+    cStringBegin = newStr.first;
+    cStringEnd = newStr.second;
+    return *this;
+}
+
+String::String(const String &s) {
+    std::cout << "String(const String &s)" << std::endl;
+    range_initializer(s.cStringBegin, s.cStringEnd);
+}
+
+std::allocator<char> String::alloc;
 
 #endif
