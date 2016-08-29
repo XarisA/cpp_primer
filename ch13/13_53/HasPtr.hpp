@@ -10,9 +10,9 @@ public:
     HasPtr(const std::string &s = std::string());
     HasPtr(const HasPtr &hp);
     HasPtr(HasPtr &&p) noexcept;
-    HasPtr& operator=(HasPtr rhs);
-    //HasPtr& operator=(const HasPtr &rhs);
-    //HasPtr& operator=(HasPtr &&rhs) noexcept;
+    //HasPtr& operator=(HasPtr rhs);
+    HasPtr& operator=(const HasPtr &rhs);
+    HasPtr& operator=(HasPtr &&rhs) noexcept;
     ~HasPtr();
 
 private:
@@ -44,9 +44,28 @@ HasPtr::HasPtr(HasPtr &&p) noexcept : ps(p.ps), i(p.i)
     std::cout << "call move constructor" << std::endl;
 }
 
+/*
 HasPtr& HasPtr::operator=(HasPtr rhs)
 {
     swap(*this, rhs);
+    return *this;
+}
+*/
+
+HasPtr& HasPtr::operator=(const HasPtr &rhs){
+    std::cout << "call copy-assignment operator" << std::endl;
+    ps = new std::string(*rhs.ps);
+    i = rhs.i;
+    return *this;
+}
+
+HasPtr& HasPtr::operator=(HasPtr &&rhs) noexcept {
+    std::cout << "call move-assignment operator" << std::endl;
+    if (this != &rhs) {
+        ps = rhs.ps;
+        i = rhs.i;
+        rhs.ps = nullptr;
+    }
     return *this;
 }
 
