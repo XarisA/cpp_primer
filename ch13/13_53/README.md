@@ -15,3 +15,13 @@ call destructor
 ```
 
 Output from move-assignment version
+
+```
+call constructor                                                                                                                                 
+call constructor                                                                                                                                 
+call constructor                                                                                                                                 
+call copy-assignment operator                                                                                                                    
+call move-assignment operator                                                                                                                    
+call destructor                                                                                                                                  
+call destructor  
+```
