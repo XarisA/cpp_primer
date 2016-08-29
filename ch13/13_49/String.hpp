@@ -65,10 +65,12 @@ String::String(const String &s) {
 }
 
 String::String(String &&s) noexcept : cStringBegin(s.cStringBegin), cStringEnd(s.cStringEnd) {
+    std::cout << "String(String &&s) noexcept" << std::endl;
     s.cStringBegin = s.cStringEnd = nullptr;
 }
 
 String& String::operator=(String &&rhs) noexcept {
+    std::cout << "operator=(String &&rhs) noexcept" << std::endl;
     if (this != &rhs) {
         free();
         cStringBegin = rhs.cStringBegin;
