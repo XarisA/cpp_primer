@@ -33,6 +33,9 @@ public:
 
     // add and remove elements
     void push_back(const std::string &t) { data->push_back(t); }
+
+    void push_back(std::string &&t) { data->push_back(std::move(t)); }
+
     void pop_back() { 
         check(0, "pop_back on empty StrBlob");
         data->pop_back();
