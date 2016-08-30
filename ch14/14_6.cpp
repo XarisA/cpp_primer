@@ -1,4 +1,4 @@
-#include "14_6.hpp"
+#include "14_6_9.hpp"
 #include <iostream>
 
 std::ostream& operator<<(std::ostream &os, const Sales_data &s) {

@@ -14,6 +14,7 @@ class Sales_data {
     friend istream &read(istream &is, Sales_data &s);
     friend ostream &print(ostream &os, const Sales_data &s);
     friend ostream& operator<<(ostream&, const Sales_data&);
+    friend istream& operator>>(istream&, Sales_data&);
     friend Sales_data add(const Sales_data &s1, const Sales_data &s2);
     
     private:

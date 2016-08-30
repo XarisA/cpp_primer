@@ -6,9 +6,10 @@
 
 class Book {
     friend std::ostream &operator<<(std::ostream&, const Book&);
-    friend std::istream &operator>>(std::istream&, const Book&);
+    friend std::istream &operator>>(std::istream&, Book&);
 public:
     Book(std::string n, double p) : name(n), price(p) {};
+    Book() : name(""), price(0.0) {};
 private:
     std::string name;
     double price;
