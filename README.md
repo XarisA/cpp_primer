@@ -1,9 +1,5 @@
 # Solutions to C++ Primer 5th Edition
 
-coding problems only at this point.
-
-You can pruchase this book from Amazon.com: <https://www.amazon.com/Primer-5th-Stanley-B-Lippman/dp/0321714113?ie=UTF8&*Version*=1&*entries*=0>
-
 ### Contents
 
 - [Chapter 1. Getting Started](ch01)
@@ -22,10 +18,13 @@ You can pruchase this book from Amazon.com: <https://www.amazon.com/Primer-5th-S
   - [Chapter 12. Dynamic Memory](ch12)
 - Part III: Tools for Class Authors
   - [Chapter 13. Copy Control](ch13)
-  - Chapter 14. Overloaded Operations and Conversions
+  - [Chapter 14. Overloaded Operations and Conversions](ch14)
   - Chapter 15. Object-Oriented Programming
   - Chapter 16. Templates and Generic Programming
 - Part IV:  Advanced Topics
   - Chapter 17. Specialized Library Facilities
   - Chapter 18. Tools for Large Programs
   - Chapter 19. Specialized Tools and Techniques
+
+
+You can pruchase this book from [Amazon.com](https://www.amazon.com/Primer-5th-Stanley-B-Lippman/dp/0321714113?ie=UTF8&*Version*=1&*entries*=0)
