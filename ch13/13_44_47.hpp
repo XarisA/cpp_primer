@@ -6,6 +6,7 @@
 #include <iostream>
 
 class String {
+    friend std::ostream& operator<<(std::ostream&, const String&);
 public:
     String() : String("") {};
     String(const char*);
