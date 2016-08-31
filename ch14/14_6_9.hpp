@@ -16,6 +16,7 @@ class Sales_data {
     friend ostream& operator<<(ostream&, const Sales_data&);
     friend istream& operator>>(istream&, Sales_data&);
     friend Sales_data add(const Sales_data &s1, const Sales_data &s2);
+    friend Sales_data operator+(const Sales_data&, const Sales_data&);
     
     private:
         string bookNo;
@@ -23,6 +24,7 @@ class Sales_data {
         double revenue = 0.0;
     public:
         Sales_data& combine(const Sales_data &rhs);
+        Sales_data& operator+=(const Sales_data &rhs);
         string isbn() const;
         inline double avg_price();
 
