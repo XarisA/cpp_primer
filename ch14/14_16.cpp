@@ -4,7 +4,7 @@
 #include <algorithm>
 
 bool operator==(const StrBlob &s1, const StrBlob &s2) {
-    return s1.data == s2.data;
+    return *s1.data == *s2.data;
 }
 
 bool operator!=(const StrBlob &s1, const StrBlob &s2) {
