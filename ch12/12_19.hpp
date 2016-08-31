@@ -6,6 +6,8 @@
 class StrBlob;
 
 class StrBlobPtr {
+    friend bool operator==(const StrBlobPtr&, const StrBlobPtr&);
+    friend bool operator!=(const StrBlobPtr&, const StrBlobPtr&);
 public:
     StrBlobPtr() : curr(0) {}
     StrBlobPtr(StrBlob &a, size_t sz = 0) : wptr(a.data), curr(sz) {}

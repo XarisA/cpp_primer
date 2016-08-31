@@ -6,6 +6,8 @@
 #include <utility>
 
 class StrVec {
+    friend bool operator==(const StrVec&, const StrVec&);
+    friend bool operator!=(const StrVec&, const StrVec&);
 public:
     StrVec() : elements(nullptr), first_free(nullptr), cap(nullptr) {};
     StrVec(const StrVec&);

@@ -7,6 +7,8 @@
 
 class String {
     friend std::ostream& operator<<(std::ostream&, const String&);
+    friend bool operator==(const String&, const String&);
+    friend bool operator!=(const String&, const String&);
 public:
     String() : String("") {};
     String(const char*);
