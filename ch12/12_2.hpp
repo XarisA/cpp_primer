@@ -12,6 +12,10 @@ public:
     friend class StrBlobPtr;
     friend bool operator==(const StrBlob&, const StrBlob&);
     friend bool operator!=(const StrBlob&, const StrBlob&);
+    friend bool operator<(const StrBlob&, const StrBlob&);
+    friend bool operator>(const StrBlob&, const StrBlob&);
+    friend bool operator<=(const StrBlob&, const StrBlob&);
+    friend bool operator>=(const StrBlob&, const StrBlob&);
     StrBlobPtr begin();
     StrBlobPtr end();
 
