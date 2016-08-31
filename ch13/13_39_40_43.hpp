@@ -17,6 +17,7 @@ public:
     StrVec(const StrVec&);
     StrVec(std::initializer_list<std::string>);
     StrVec& operator=(const StrVec&);
+    StrVec& operator=(std::initializer_list<std::string>);
     ~StrVec() { free(); };
     void push_back(const std::string&);
     void reserve(const size_t);

@@ -24,7 +24,8 @@ class Sales_data {
         double revenue = 0.0;
     public:
         Sales_data& combine(const Sales_data &rhs);
-        Sales_data& operator+=(const Sales_data &rhs);
+        Sales_data& operator+=(const Sales_data&);
+        Sales_data& operator=(const string&);
         string isbn() const;
         inline double avg_price();
 
