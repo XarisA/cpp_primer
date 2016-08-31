@@ -1,7 +1,7 @@
 #include "../ch12/12_19.hpp"
 #include "../ch13/13_39_40_43.hpp"
 #include "../ch13/13_44_47.hpp"
-#include <iostream>
+#include <algorithm>
 
 bool operator==(const StrBlob &s1, const StrBlob &s2) {
     return s1.data == s2.data;
@@ -20,7 +20,7 @@ bool operator!=(const StrBlobPtr &p1, const StrBlobPtr &p2) {
 }
 
 bool operator==(const StrVec &s1, const StrVec &s2) {
-    return s1.elements == s2.elements && s1.first_free == s2.first_free && s1.cap == s2.cap;
+    return s1.size() == s2.size() && std::equal(s1.begin(), s1.end(), s2.begin());
 }
 
 bool operator!=(const StrVec &s1, const StrVec &s2) {
@@ -28,7 +28,7 @@ bool operator!=(const StrVec &s1, const StrVec &s2) {
 }
 
 bool operator==(const String &s1, const String &s2) {
-    return s1.cStringBegin == s2.cStringBegin && s1.cStringEnd == s2.cStringEnd;
+    return std::lexicographical_compare(s1.cStringBegin, s1.cStringEnd, s2.cStringBegin, s2.cStringEnd);
 }
 
 bool operator!=(const String &s1, const String &s2) {
