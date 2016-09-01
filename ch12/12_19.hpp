@@ -27,6 +27,10 @@ public:
     bool operator!=(const StrBlobPtr& p) { return p.curr != curr; }
     std::string& operator[](std::size_t);
     const std::string& operator[](std::size_t) const;
+    StrBlobPtr& operator++();
+    StrBlobPtr& operator--();
+    StrBlobPtr operator++(int);
+    StrBlobPtr operator--(int);
 private:
     std::shared_ptr<std::vector<std::string>> check(std::size_t sz, const std::string &msg) const {
         auto ret = wptr.lock();
