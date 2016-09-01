@@ -4,10 +4,12 @@
 #include <algorithm>
 
 std::string& StrBlob::operator[](std::size_t n) {
+    check(n, "index out of range");
     return data->at(n);
 }
 
 const std::string& StrBlob::operator[](std::size_t n) const {
+    check(n, "index out of range");
     return data->at(n);
 }
 
