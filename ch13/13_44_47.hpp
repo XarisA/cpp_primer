@@ -19,6 +19,8 @@ public:
     ~String() { free(); };
     String(const String&);
     String& operator=(const String&);
+    char& operator[](std::size_t);
+    const char& operator[](std::size_t) const;
 private:
     static std::allocator<char> alloc;
     std::pair<char*, char*> alloc_n_copy(const char*, const char*);

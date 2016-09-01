@@ -8,7 +8,6 @@
 class StrBlobPtr;
 
 class StrBlob {
-public:
     friend class StrBlobPtr;
     friend bool operator==(const StrBlob&, const StrBlob&);
     friend bool operator!=(const StrBlob&, const StrBlob&);
@@ -16,6 +15,9 @@ public:
     friend bool operator>(const StrBlob&, const StrBlob&);
     friend bool operator<=(const StrBlob&, const StrBlob&);
     friend bool operator>=(const StrBlob&, const StrBlob&);
+public:
+    std::string& operator[](std::size_t);
+    const std::string& operator[](std::size_t) const;
     StrBlobPtr begin();
     StrBlobPtr end();
 

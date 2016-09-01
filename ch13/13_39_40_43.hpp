@@ -26,6 +26,8 @@ public:
     size_t capacity() const { return cap - elements; }
     std::string *begin() const { return elements; }
     std::string *end() const { return first_free; }
+    std::string& operator[](std::size_t);
+    const std::string& operator[](std::size_t) const;
 private:
     static std::allocator<std::string> alloc;
     void chk_n_alloc() { if (size() == capacity()) reallocate(); }
