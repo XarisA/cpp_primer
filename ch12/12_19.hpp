@@ -35,11 +35,44 @@ public:
     StrBlobPtr& operator-=(const size_t);
     StrBlobPtr operator+(const size_t) const;
     StrBlobPtr operator-(const size_t) const;
+    std::string* operator->() const;
+    std::string& operator*() const;
 private:
     std::shared_ptr<std::vector<std::string>> check(std::size_t sz, const std::string &msg) const {
         auto ret = wptr.lock();
         if (!ret) {
             throw std::runtime_error("unbound StrBlobPtr");
+        }
+        if (sz >= ret->size()) {
+            throw std::out_of_range(msg);
+        }
+        return ret;
+    }
+    std::weak_ptr<std::vector<std::string>> wptr;
+    std::size_t curr;
+};
+
+class ConstStrBlobPtr {
+public:
+    ConstStrBlobPtr() : curr(0) {}
+    ConstStrBlobPtr(const StrBlob &a, size_t sz = 0) : wptr(a.data), curr(sz) {}
+    const std::string& deref() const {
+        auto p = check(curr, "dereference past end");
+        return (*p)[curr];
+    }
+    ConstStrBlobPtr& incr() {
+        check(curr, "increment past end of ConstStrBlobPtr");
+        ++curr;
+        return *this;
+    }
+    bool operator!=(const ConstStrBlobPtr& p) { return p.curr != curr; }
+    const std::string* operator->() const;
+    const std::string& operator*() const;
+private:
+    std::shared_ptr<std::vector<std::string>> check(std::size_t sz, const std::string &msg) const {
+        auto ret = wptr.lock();
+        if (!ret) {
+            throw std::runtime_error("unbound ConstStrBlobPtr");
         }
         if (sz >= ret->size()) {
             throw std::out_of_range(msg);

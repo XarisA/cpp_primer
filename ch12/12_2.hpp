@@ -6,9 +6,11 @@
 #include <memory>
 
 class StrBlobPtr;
+class ConstStrBlobPtr;
 
 class StrBlob {
     friend class StrBlobPtr;
+    friend class ConstStrBlobPtr;
     friend bool operator==(const StrBlob&, const StrBlob&);
     friend bool operator!=(const StrBlob&, const StrBlob&);
     friend bool operator<(const StrBlob&, const StrBlob&);
@@ -20,6 +22,9 @@ public:
     const std::string& operator[](std::size_t) const;
     StrBlobPtr begin();
     StrBlobPtr end();
+
+    ConstStrBlobPtr cbegin();
+    ConstStrBlobPtr cend();
 
     typedef std::vector<std::string>::size_type size_type;
     StrBlob() : data(std::make_shared<std::vector<std::string>>()) {}
