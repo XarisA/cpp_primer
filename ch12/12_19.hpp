@@ -31,6 +31,10 @@ public:
     StrBlobPtr& operator--();
     StrBlobPtr operator++(int);
     StrBlobPtr operator--(int);
+    StrBlobPtr& operator+=(const size_t);
+    StrBlobPtr& operator-=(const size_t);
+    StrBlobPtr operator+(const size_t) const;
+    StrBlobPtr operator-(const size_t) const;
 private:
     std::shared_ptr<std::vector<std::string>> check(std::size_t sz, const std::string &msg) const {
         auto ret = wptr.lock();
