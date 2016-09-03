@@ -10,8 +10,9 @@ class Book {
     friend bool operator==(const Book&, const Book&);
     friend bool operator!=(const Book&, const Book&);
 public:
-    Book(std::string n, double p) : name(n), price(p) {};
-    Book() : name(""), price(0.0) {};
+    Book(std::string n, double p) : name(n), price(p) {}
+    Book() : name(""), price(0.0) {}
+    explicit operator bool() const { return (name.size() > 0 ? true : false); }
 private:
     std::string name;
     double price;
