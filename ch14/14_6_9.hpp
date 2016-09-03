@@ -28,6 +28,8 @@ class Sales_data {
         Sales_data& operator=(const string&);
         string isbn() const;
         inline double avg_price();
+        explicit operator string() const { return bookNo; }
+        explicit operator double() const { return revenue; }
 
         // constructors
         Sales_data(const string &s, unsigned u, double r) : 
