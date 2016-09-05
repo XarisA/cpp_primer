@@ -10,7 +10,7 @@ public:
 
     double net_price(std::size_t n) const override {
         if (n >= min_qty) {
-            return price * (1 - discount) * n;
+            return price * discount * n;
         }
         else {
             return price * n;
