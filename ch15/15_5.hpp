@@ -16,6 +16,10 @@ public:
             return price * n;
         }
     }
+    void debug() const override {
+        Quote::debug();
+        std::cout << " " << min_qty << " " << discount;
+    }
 private:
     std::size_t min_qty;
     double discount;

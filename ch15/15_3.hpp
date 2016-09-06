@@ -2,6 +2,7 @@
 #define QUOTE
 
 #include <string>
+#include <iostream>
 
 class Quote {
 public:
@@ -10,6 +11,7 @@ public:
     std::string isbn() const { return bookNo; }
 
     virtual double net_price(std::size_t n) const { return n * price; }
+    virtual void debug() const { std::cout << bookNo << ' ' << price; }
     virtual ~Quote() = default;
 private:
     std::string bookNo;
