@@ -1,3 +1,4 @@
+#include "Limited_quote.hpp"
 #include "Bulk_quote.hpp"
 #include <iostream>
 
@@ -15,5 +16,9 @@ int main() {
     Bulk_quote b("101-12333-888", 17.99, 15, 0.8);
     print_total(std::cout, b, 3) << std::endl;
     print_total(std::cout, b, 60) << std::endl;
+
+    Limited_quote l("101-12333-888", 17.99, 15, 0.8);
+    print_total(std::cout, l, 15) << std::endl;
+    print_total(std::cout, l, 16) << std::endl;
     return 0;
 }
