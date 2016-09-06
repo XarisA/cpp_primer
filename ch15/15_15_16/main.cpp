@@ -20,5 +20,11 @@ int main() {
     Limited_quote l("101-12333-888", 17.99, 15, 0.8);
     print_total(std::cout, l, 15) << std::endl;
     print_total(std::cout, l, 16) << std::endl;
+
+    /*
+    Disc_quote d;
+    error: variable type 'Disc_quote' is an abstract class
+    */
+    
     return 0;
 }
