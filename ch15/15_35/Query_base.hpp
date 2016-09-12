@@ -8,7 +8,7 @@
 class Query_base {
     friend class Query;
 protected:
-    //using line_no = TextQuery::line_no;
+    //using line_no = TextQuery::line_no;       // TODO
     virtual ~Query_base() = default;
 private:
     virtual QueryResult eval(const TextQuery&) const = 0;
