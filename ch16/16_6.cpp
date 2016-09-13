@@ -1,9 +1,9 @@
 #include <iostream>
 
-template <typename T, unsigned size>
+template <typename T, size_t size>
 T* my_begin(T (&t)[size]) { return t; }
 
-template <typename T, unsigned size>
+template <typename T, size_t size>
 T* my_end(T (&t)[size]) { return t + size; }
 
 int main() {
