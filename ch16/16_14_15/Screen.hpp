@@ -4,8 +4,18 @@
 #include <string>
 #include <iostream>
 
+template <unsigned H, unsigned W> class Screen;
+
+template <unsigned H, unsigned W> 
+std::ostream& operator<<(std::ostream&, const Screen<H, W>&);
+
+template <unsigned H, unsigned W>
+std::istream& operator>>(std::istream&, Screen<H, W>&);
+
 template <unsigned H, unsigned W>
 class Screen {
+    friend std::ostream& operator<< <H, W>(std::ostream&, const Screen<H, W>&);
+    friend std::istream& operator>> <H, W>(std::istream&, const Screen<H, W>&);
 public:
     using pos = std::string::size_type;
     Screen() = default;

@@ -24,3 +24,18 @@ Screen<H, W>& Screen<H, W>::set(char c) {
     contents[cursor] = c;
     return *this;
 }
+
+template <unsigned H, unsigned W> 
+std::ostream& operator<<(std::ostream &os, const Screen<H, W> &s) {
+    s.do_display(os);
+    return os;
+}
+
+template <unsigned H, unsigned W>
+std::istream& operator>>(std::istream &is, Screen<H, W> &s) {
+    char a;
+    is >> a;
+    std::string temp(H * W, a);
+    s.contents = temp;
+    return is;
+}
