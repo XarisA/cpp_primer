@@ -23,6 +23,11 @@ public:
         return (*p)[curr];
     }
 
+    T& deref() const {
+        auto p = check(curr, "dereference past end");
+        return (*p)[curr];
+    }
+
     BlobPtr& operator++();
     BlobPtr& operator--();
     BlobPtr operator++(int);
