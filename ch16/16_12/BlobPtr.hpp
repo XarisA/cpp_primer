@@ -14,6 +14,8 @@ bool operator<(const BlobPtr<T>& lhs, const BlobPtr<T>& rhs);
 template <typename T> class Blob;
 
 template <typename T> class BlobPtr {
+    friend bool operator==<T>(const BlobPtr<T>&, const BlobPtr<T>&);
+    friend bool operator< <T>(const BlobPtr<T>&, const BlobPtr<T>&);
 public:
     BlobPtr() : curr(0) { }
     BlobPtr(Blob<T> &a, size_t sz = 0) : wptr(a.data), curr(sz) { }
