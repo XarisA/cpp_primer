@@ -8,6 +8,10 @@ Blob<T>::Blob(std::initializer_list<T> li) :
             data(std::make_shared<std::vector<T>>(li)) { }
 
 template <typename T>
+template <typename It>
+    Blob(It beg, It end) : data(std::make_shared<std::vector<T>>(beg, end)) { }
+
+template <typename T>
 void Blob<T>::check(size_type i, const std::string &msg) const {
     if (i >= data->size())
         throw std::out_of_range(msg);
