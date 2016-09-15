@@ -21,6 +21,9 @@ public:
     Blob();
     Blob(std::initializer_list<T> il);
 
+    template <typename It>
+    Blob(It, It);
+
     size_type size() const { return data->size(); }
     bool empty() const { return data->empty(); }
 
