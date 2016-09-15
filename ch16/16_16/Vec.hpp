@@ -40,8 +40,8 @@ public:
 
     Vec& operator=(const Vec&);
     Vec& operator=(std::initializer_list<T>);
-    Vec& operator[](size_t);
-    const Vec& operator[](size_t) const;
+    T& operator[](size_t);
+    const T& operator[](size_t) const;
 
     T* begin() const { return elements; }
     T* end() const { return first_free; }
@@ -68,5 +68,8 @@ private:
     T *first_free;
     T *cap;
 };
+
+template <typename T>
+std::allocator<T> Vec<T>::alloc;
 
 #endif
