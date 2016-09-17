@@ -21,13 +21,33 @@ public:
     my_shared_ptr(const my_shared_ptr &p) : ptr(p.ptr),
                                             ref_count(p.ref_count),
                                             deleter(p.deleter) 
-    {
-        ++*ref_count;    
+                                            { ++*ref_count; }
+
+    operator bool() { return ptr ? true : false; }
+
+    T& operator* () const { return *ptr; }
+    T* operator->() const { return &*ptr; }
+
+    auto use_count() const { return *ref_count; }
+    auto get() const { return ptr; }
+    auto unique() const { return *ref_count == 1; }
+    auto swap(my_shared_ptr &p) { ::swap(*this, p); }
+
+    void reset() { decrement_and_destroy(); }
+    void reset(T* pointer) {
+        if (ptr != pointer) {
+            decrement_and_destroy();
+            ptr = pointer;
+            ref_count = new std::size_t(1);
+        }
+    }
+    void reset(T *pointer, const std::function<void(T*)> &d) {
+        reset(pointer);
+        deleter = d;
     }
 
     my_shared_ptr(my_shared_ptr &&p) noexcept : 
-    ptr(p.ptr), ref_count(p.ref_count), deleter(std::move(p.deleter)) 
-    {
+    ptr(p.ptr), ref_count(p.ref_count), deleter(std::move(p.deleter)) {
         p.ptr = nullptr;
         p.ref_count = nullptr;
     }
