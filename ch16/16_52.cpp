@@ -1,7 +1,7 @@
 #include <iostream>
 
-template <typename ... Args>
-void g(Args ... args) {
+template <typename T, typename ... Args>
+void g(T, Args ... args) {
     std::cout << "Args: " << sizeof...(Args) << std::endl;
     std::cout << "args: " << sizeof...(args) << std::endl;
 }
