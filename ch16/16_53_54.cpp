@@ -1,12 +1,12 @@
 #include <iostream>
 
 template <typename T>
-void print(std::ostream &os, T t) {
+void print(std::ostream &os, const T &t) {
     os << t << std::endl;
 }
 
 template <typename T, typename ... Args>
-void print(std::ostream &os, T t, Args ... args) {
+void print(std::ostream &os, const T &t, const Args& ... args) {
     os << t << ' ';
     print(os, args ...);
 }
