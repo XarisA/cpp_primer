@@ -15,8 +15,10 @@ class Sales_data {
     friend ostream &print(ostream &os, const Sales_data &s);
     friend ostream& operator<<(ostream&, const Sales_data&);
     friend istream& operator>>(istream&, Sales_data&);
+    friend bool operator==(const Sales_data&, const Sales_data&);
     friend Sales_data add(const Sales_data &s1, const Sales_data &s2);
     friend Sales_data operator+(const Sales_data&, const Sales_data&);
+    friend class std::hash<Sales_data>;
     
     private:
         string bookNo;
@@ -81,12 +83,36 @@ ostream &print(ostream &os, const Sales_data &s) {
     return os;
 }
 
+ostream& operator<<(ostream &os, const Sales_data &s) {
+    return print(os, s);
+}
+
 Sales_data add(const Sales_data &s1, const Sales_data &s2) {
     Sales_data result;
     result.bookNo = s1.bookNo;
     result.units_sold = s1.units_sold + s2.units_sold;
     result.revenue = s1.revenue + s2.revenue;
     return result;
+}
+
+bool operator==(const Sales_data &lhs, const Sales_data &rhs) {
+    return lhs.bookNo == rhs.bookNo && lhs.units_sold == rhs.units_sold &&
+            lhs.revenue == rhs.revenue;
+}
+
+namespace std {
+    template <>
+    struct hash<Sales_data> {
+        typedef size_t result_type;
+        typedef Sales_data argument_type;
+        size_t operator()(const Sales_data &s) const;
+    };
+
+    size_t hash<Sales_data>::operator()(const Sales_data &s) const {
+        return hash<string>()(s.bookNo) ^
+                hash<unsigned>()(s.units_sold) ^
+                hash<double>()(s.revenue);
+    }
 }
 
 #endif
