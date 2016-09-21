@@ -7,7 +7,7 @@ class quiz {
     friend bool grade(const quiz&, const quiz&);
 public:
     quiz() = default;
-    void set(size_t pos, bool pof);
+    void set(size_t pos, bool pof = true);
 private:
     unsigned int data;
 };
