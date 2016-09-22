@@ -1,7 +1,7 @@
 #include <regex>
 #include <iostream>
 
-bool vaild(const std::smatch &m) {
+bool valid(const std::smatch &m) {
     if (m[1].matched)
         return m[3].matched && (!m[4].matched || m[4].str() == " ");
     else
@@ -16,7 +16,7 @@ int main() {
     while(getline(std::cin, s)) {
         for (std::sregex_iterator it(s.begin(), s.end(), r), end_it;
                 it != end_it; ++it) {
-            if(vaild(*it))
+            if(valid(*it))
                 std::cout << "Valid: ";
             else
                 std::cout << "Not valid: ";
