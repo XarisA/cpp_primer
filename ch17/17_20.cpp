@@ -12,7 +12,6 @@ int main() {
     std::string phone_num =
         "(\\()?(\\d{3})(\\))?([-. ])?(\\d{3})([-. ]?)(\\d{4})";
     std::regex r(phone_num);
-    std::smatch m;
     std::string s;
     while(getline(std::cin, s)) {
         for (std::sregex_iterator it(s.begin(), s.end(), r), end_it;
