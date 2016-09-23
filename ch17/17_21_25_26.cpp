@@ -38,6 +38,22 @@ int main(int argc, char** argv) {
         while (record >> word) {
             info.phones.push_back(word);
         }
+        /*
+        ex 17.25:
+
+        record >> word;
+        info.phones.push_back(word);
+        */
+
+        /*
+        ex 17.26
+
+        record >> word;     // the first number
+        while (record >> word) {
+            info.phones.push_back(word);
+        }
+        */
+
         people.push_back(info);
     }
     
