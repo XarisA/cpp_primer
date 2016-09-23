@@ -10,7 +10,7 @@ bool valid(const std::smatch &m) {
 
 int main() {
     std::string phone_num =
-        "(\\()?(\\d{3})(\\))?([-. ]?(\\d{3})([-. ]?)(\\d{4})";
+        "(\\()?(\\d{3})(\\))?([-. ])?(\\d{3})([-. ]?)(\\d{4})";
         // TODO: ex 17.22, match any number of whitespace
     std::regex r(phone_num);
     std::string s;
