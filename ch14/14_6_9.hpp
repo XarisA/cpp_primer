@@ -36,25 +36,25 @@ class Sales_data {
         // constructors
         Sales_data(const string &s, unsigned u, double r) : 
                     bookNo(s), units_sold(u), revenue(r * u) {
-            #ifndef NDEBUG
-            std::cerr << "Delegate called"<< endl;
-            #endif
+            // #ifndef NDEBUG
+            // std::cerr << "Delegate called"<< endl;
+            // #endif
         }
         Sales_data() : Sales_data("", 0, 0.0) {
-            #ifndef NDEBUG
-            std::cerr << "Default constructor called"<< endl;
-            #endif
+            // #ifndef NDEBUG
+            // std::cerr << "Default constructor called"<< endl;
+            // #endif
         }
         Sales_data(const string &s) : Sales_data(s, 0, 0.0) {
-            #ifndef NDEBUG
-            std::cerr << "string constructor called"<< endl;
-            #endif
+            // #ifndef NDEBUG
+            // std::cerr << "string constructor called"<< endl;
+            // #endif
         }
         
         Sales_data(istream &is) : Sales_data("", 0, 0.0){
-            #ifndef NDEBUG
-            std::cerr << "istream constructor called"<< endl;
-            #endif
+            // #ifndef NDEBUG
+            // std::cerr << "istream constructor called"<< endl;
+            // #endif
             read(is, *this);
         }   
 };
