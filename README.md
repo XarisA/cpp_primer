@@ -24,7 +24,7 @@
 - Part IV:  Advanced Topics
   - [Chapter 17. Specialized Library Facilities](ch17)
   - [Chapter 18. Tools for Large Programs](ch18)
-  - Chapter 19. Specialized Tools and Techniques
+  - [Chapter 19. Specialized Tools and Techniques](ch19)
 
 
 You can pruchase this book from [Amazon.com](https://www.amazon.com/Primer-5th-Stanley-B-Lippman/dp/0321714113?ie=UTF8&*Version*=1&*entries*=0)
