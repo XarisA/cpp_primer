@@ -31,7 +31,8 @@ public:
 private:
     static std::allocator<std::string> alloc;
     void chk_n_alloc() { if (size() == capacity()) reallocate(); }
-    std::pair<std::string*, std::string*> alloc_n_copy(const std::string*, const std::string*);
+    std::pair<std::string*, std::string*> alloc_n_copy(const std::string*, 
+                                                        const std::string*);
     void free();
     void reallocate(const size_t n = 0);
     std::string *elements;
@@ -60,7 +61,8 @@ void StrVec::push_back(const std::string& s) {
     alloc.construct(first_free++, s);
 }
 
-std::pair<std::string*, std::string*> StrVec::alloc_n_copy(const std::string *b, const std::string *e) {
+std::pair<std::string*, std::string*>
+StrVec::alloc_n_copy(const std::string *b, const std::string *e) {
     auto data = alloc.allocate(e - b);
     return {data, uninitialized_copy(b, e, data)};
 }
@@ -72,7 +74,8 @@ void StrVec::free() {
         }
         /*
         Ex. 13.43 : is this going to destroy elements in reverse order?
-        for_each(elements, first_free, [this](const std::string &rhs){ alloc.destroy(&rhs); });
+        for_each(elements, first_free, [this](const std::string &rhs)
+                                            { alloc.destroy(&rhs); });
         */
         alloc.deallocate(elements, cap - elements);
     }
