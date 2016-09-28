@@ -20,8 +20,9 @@ class Screen {
     public:
         using pos = std::string::size_type;
         Screen() = default;
-        Screen(pos h, pos w, char c) : height(h), width(w), contents(h * w, c) {};
-        Screen(pos h, pos w) : height(h), width(w), contents(h * w, ' ') {};
+        Screen(pos h, pos w, char c) : height(h), width(w), 
+                                        contents(h * w, c) { };
+        Screen(pos h, pos w) : height(h), width(w), contents(h * w, ' ') { };
 
         inline char get() const {
             return contents[cursor];
@@ -39,6 +40,10 @@ class Screen {
         const Screen &display(std::ostream &os) const {
             do_display(os);
             return *this;
+        }
+
+        static const pos Screen::*pCursor() {
+            return &Screen::cursor;
         }
         
     private:
