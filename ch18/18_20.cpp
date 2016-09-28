@@ -1,20 +1,20 @@
 #include <iostream>
 
 namespace primerLib {
-    void compute() { std::cout << "conpute()" << std::endl; }
+    void compute() { std::cout << "compute()" << std::endl; }
     void compute(const void*) { 
-        std::cout << "conpute(const void *)" << std::endl; 
+        std::cout << "compute(const void *)" << std::endl; 
     }
 }
 
 using primerLib::compute;   // calls compute()
 
-void compute(int) { std::cout << "conpute(int)" << std::endl; }
+void compute(int) { std::cout << "compute(int)" << std::endl; }
 void compute(double, double = 3.4) {
-    std::cout << "conpute(double, double = 3.4)" << std::endl;
+    std::cout << "compute(double, double = 3.4)" << std::endl;
 }
 void compute(char*) { 
-    std::cout << "conpute(char*)" << std::endl;
+    std::cout << "compute(char*)" << std::endl;
 }
 
 int main() {
