@@ -28,6 +28,7 @@ class Sales_data {
         Sales_data& combine(const Sales_data &rhs);
         Sales_data& operator+=(const Sales_data&);
         Sales_data& operator=(const string&);
+        Sales_data& operator=(const Sales_data&);
         string isbn() const;
         inline double avg_price();
         explicit operator string() const { return bookNo; }
@@ -56,12 +57,23 @@ class Sales_data {
             // std::cerr << "istream constructor called"<< endl;
             // #endif
             read(is, *this);
-        }   
+        }
+
+        Sales_data(const Sales_data &s) : Sales_data(s.bookNo,
+                                         s.units_sold, s.revenue) { }  
 };
 
 Sales_data& Sales_data::combine(const Sales_data &rhs) {
     units_sold += rhs.units_sold;
     revenue += rhs.revenue;
+    return *this;
+}
+
+Sales_data& Sales_data::operator=(const Sales_data &s) {
+    if (*this == s) return *this;
+    bookNo = s.bookNo;
+    units_sold = s.units_sold;
+    revenue = s.revenue;
     return *this;
 }
 
